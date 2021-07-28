@@ -1,48 +1,48 @@
-name: 'Build and publish Docker Image to GitHub Packages Registry'
+name: "Build and publish Docker Image to GitHub Container Registry"
 description: 'GitHub Action to publish Docker Images to GitHub Registry. It is possible to specify Dockerfile name and\or build context.'
 inputs:
-  github-token:
-    description: 'GitHub token to push Docker image to GitHub Packages'
-    required: true
-  image-name:
-    description: 'Docker Image name'
-    required: true
-  image-tag:
-    description: 'Docker Image tag'
-    default: "latest"
-    required: false
-  extract-git-tag:
-    description: 'Extract git-tag from repository'
-    default: "false"
-    required: false
-  dockerfile:
-    description: 'Dockerfile name'
-    default: "Dockerfile"
-    required: false
-  build-context:
-    description: 'Path to build context'
-    default: "."
-    required: false
-  pull-image:
-    description: 'Pull the image before buiding it'
-    default: "false"
-    required: false
-  custom-args:
-    description: 'Any additional docker build arguments as a string'
-    default: ""
-    required: false
+    github-token:
+        description: "GitHub token to push Docker image to GitHub Packages"
+        required: true
+    image-name:
+        description: "Docker Image name"
+        required: true
+    image-tag:
+        description: "Docker Image tag"
+        default: "latest"
+        required: false
+    extract-git-tag:
+        description: "Extract git-tag from repository"
+        default: "false"
+        required: false
+    dockerfile:
+        description: "Dockerfile name"
+        default: "Dockerfile"
+        required: false
+    build-context:
+        description: "Path to build context"
+        default: "."
+        required: false
+    pull-image:
+        description: "Pull the image before buiding it"
+        default: "false"
+        required: false
+    custom-args:
+        description: "Any additional docker build arguments as a string"
+        default: ""
+        required: false
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.github-token }}
-    - ${{ inputs.image-name }}
-    - ${{ inputs.image-tag }}
-    - ${{ inputs.extract-git-tag }}
-    - ${{ inputs.dockerfile }}
-    - ${{ inputs.build-context}}
-    - ${{ inputs.pull-image}}
-    - ${{ inputs.custom-args}}
+    using: "docker"
+    image: "Dockerfile"
+    args:
+        - ${{ inputs.github-token }}
+        - ${{ inputs.image-name }}
+        - ${{ inputs.image-tag }}
+        - ${{ inputs.extract-git-tag }}
+        - ${{ inputs.dockerfile }}
+        - ${{ inputs.build-context}}
+        - ${{ inputs.pull-image}}
+        - ${{ inputs.custom-args}}
 branding:
-  icon: 'box'
-  color: 'blue'
+    icon: "box"
+    color: "blue"
