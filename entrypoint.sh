@@ -9,6 +9,8 @@ BUILD_CONTEXT=$6
 PULL_IMAGE=$7
 CUSTOM_DOCKER_BUILD_ARGS=$8
 
+git config --global url."https://${DOCKER_USERNAME}:${DOCKER_TOKEN}@github.com/".insteadOf "https://github.com/"
+
 if [ $EXTRACT_TAG_FROM_GIT_REF == "true" ]; then
   DOCKER_IMAGE_TAG=$(echo ${GITHUB_REF} | sed -e "s/refs\/tags\///g")
 fi
